@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="almacen.css" />  
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <section class="vista vista-activa">
+            <div class="dashboard-layout">
+                <!-- Sidebar idéntico al del index -->
+                <aside class="sidebar">
+                    <div class="sidebar-brand">
+                        <div class="logo-circulo">
+                            <img src="https://i.postimg.cc/4xqb8sHN/TD-alexander.jpg" alt="Logo Tienda Alexander" />
+                        </div>
+                        <div>
+                            <h2>GestiónApp</h2>
+                            <p>Control principal</p>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <button class="nav-item" type="button" data-tab="tabInicio">Inicio</button>
+                        <button class="nav-item" type="button" data-tab="tabVentas">Ventas</button>
+                        <button class="nav-item nav-item-activa" type="button" data-tab="tabInventario" id="btnNavInventario">Inventario</button>
+                        <button class="nav-item" type="button" data-tab="tabReportes">Reportes</button>
+                        <button class="nav-item" type="button" data-tab="tabProveedores">Proveedores</button>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button class="nav-item nav-item-secundario" type="button">Copia de seguridad</button>
+                        <small>© 2026 Sistema</small>
+                    </div>
+                </aside>
+
+                <!-- Panel contenido principal -->
+                <div class="pagina-admin">
+                    <header class="barra-superior">
+                        <div class="marca">
+                            <div class="logo-circulo">
+                                <img src="https://i.postimg.cc/4xqb8sHN/TD-alexander.jpg" alt="Logo" />
+                            </div>
+                            <div>
+                                <h2>Gestión de Inventario</h2>
+                                <p>Almacén y control de stock</p>
+                            </div>
+                        </div>
+                        <div class="acciones-superior">
+                            <span id="usuarioAdminValor" class="etiqueta-perfil">Usuario: Admin</span>
+                        </div>
+                    </header>
+
+                    <div class="tab-content">
+                        
+
+<section id="tabInventario" class="tab-pane tab-activa">
+    <div class="tarjeta-inventario">
+        <h1 class="titulo-inventario">Gestión de Inventario</h1>
+
+        <!-- Buscador redondito tipo píldora -->
+        <div class="search-bar-pill">
+            <span class="icono-buscar">🔍</span>
+            <input type="text" id="inputBuscarProducto" placeholder="Buscar productos por ID, nombre, categoría, o ubicación..." />
+        </div>
+
+        <!-- Tabla estilizada con cabecera menta suave -->
+        <div class="tabla-panel">
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>ID Producto ⇕</th>
+                        <th>Nombre del Producto ⇕</th>
+                        <th>Categoría ⇕</th>
+                        <th>Precio ⇕</th>
+                        <th>Estado ⇕</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaProductos"></tbody>
+            </table>
+            <div id="mensajeSinProductos" class="estado-vacio" style="display: none;">
+                No hay productos disponibles en el inventario.
+            </div>
+        </div>
+
+        <!-- Botones de acción inferiores tipo píldora -->
+        <div class="acciones-inventario-pills">
+            <button type="button" id="botonAgregarProducto" class="btn-pill btn-pill-menta">Añadir Nuevo Producto</button>
+            <button type="button" id="botonGenerarReporte" class="btn-pill btn-pill-menta">Generar Reporte de Stock</button>
+            <button type="button" id="btnAlertasStock" class="btn-pill btn-pill-menta">Alertas de Stock Bajo</button>
+            <button type="button" id="btnResumenCategoria" class="btn-pill btn-pill-oscuro">Ver Resumen por Categoría</button>
+            <button type="button" id="btnGestionarTipos" class="btn-pill btn-pill-oscuro">Gestionar Tipos de Producto</button>
+        </div>
+    </div>
+</section>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script src="../Backend/validacionesUsuario.js"></script>
+<script src="../Backend/app.js"></script>
+</body>
+</body>
+
+   </html>
