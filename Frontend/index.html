@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Tienda Alexander</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="contenedor-principal">
+        <section id="adminVista" class="vista vista-activa">
+            <div class="dashboard-layout">
+                <aside class="sidebar">
+                    <div class="sidebar-brand">
+                        <div class="logo-circulo">
+                            <img src="https://i.postimg.cc/4xqb8sHN/TD-alexander.jpg" alt="Logo de Tienda Alexander" />
+                        </div>
+                        <div>
+                            <h2>GestiónApp</h2>
+                            <p>Control principal</p>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <button class="nav-item nav-item-activa" type="button" data-tab="tabInicio">Inicio</button>
+                        <button class="nav-item" type="button" data-tab="tabVentas">Ventas</button>
+                        <button class="nav-item" type="button" data-tab="tabInventario">Inventario</button>
+                        <button class="nav-item" type="button" data-tab="tabReportes">Reportes</button>
+                        <button class="nav-item" type="button" data-tab="tabProveedores">Proveedores</button>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button class="nav-item nav-item-secundario" type="button">Copia de seguridad</button>
+                        <small>© 2026 Sistema</small>
+                    </div>
+                </aside>
+                <div class="pagina-admin">
+                    <header class="barra-superior">
+                        <div class="marca">
+                            <div class="logo-circulo">
+                                <img src="https://i.postimg.cc/4xqb8sHN/TD-alexander.jpg"
+                                    alt="Logo de Tienda Alexander" />
+                            </div>
+                            <div>
+                                <h2>Gestión de Tienda Alexander</h2>
+                                <p>Panel de administración e inventario</p>
+                            </div>
+                        </div>
+                        <div class="acciones-superior">
+                            <div class="ajustes-wrapper">
+                                <button id="botonAjustes" class="boton boton-secundario boton-ajuste" type="button">
+                                    ⚙ Ajustes
+                                </button>
+                                <div id="menuAjustes" class="menu-ajustes oculto">
+                                    <button id="cerrarSesionAjustes" class="menu-ajuste-item" type="button">Cerrar
+                                        sesión</button>
+                                    <button id="cambiarCuentaAjustes" class="menu-ajuste-item" type="button">Cambiar
+                                        cuenta</button>
+                                    <button id="eliminarCuentaAjustes" class="menu-ajuste-item" type="button">Eliminar
+                                        cuenta</button>
+                                    <button id="cambiarContrasenaAjustes" class="menu-ajuste-item" type="button">Cambiar
+                                        contraseña</button>
+                                    <button id="verPerfilesAjustes" class="menu-ajuste-item" type="button">Ver
+                                        perfiles</button>
+                                </div>
+                            </div>
+                            <span id="usuarioAdminValor" class="etiqueta-perfil">Usuario admin</span>
+                        </div>
+                    </header>
+
+                    <div class="tab-content">
+                        <div id="tabInicio" class="tab-pane tab-activa">
+                            <section class="hero-admin">
+                                <div class="hero-left">
+                                    <div class="hero-avatar"></div>
+                                    <h3 id="heroUserTitle">ADMINISTRADOR</h3>
+                                    <p id="heroUserSub" class="texto-secundario">Perfil activo</p>
+                                </div>
+                            </section>
+
+                            <section class="panel-intro">
+                                <div>
+                                    <h1>Panel de Control Principal</h1>
+                                    <p>Selecciona una opción del sistema para comenzar a gestionar tu negocio</p>
+                                </div>
+                            </section>
+
+                            <div class="panel-inicio">
+                                <div class="panel-card">
+                                    <h3>Vender</h3>
+                                    <p>Realiza cobros rápidos y registra nuevas ventas.</p>
+                                </div>
+                                <div class="panel-card">
+                                    <h3>Ver Inventario</h3>
+                                    <p>Consulta el stock actual y productos disponibles.</p>
+                                </div>
+                                <div class="panel-card">
+                                    <h3>Generar Reporte</h3>
+                                    <p>Visualiza estadísticas de ventas y rendimiento.</p>
+                                </div>
+                                <div class="panel-card">
+                                    <h3>Gestión de Proveedores</h3>
+                                    <p>Administra la información y relaciones con tus proveedores.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tabInventario" class="tab-pane">
+                            <div class="inventario-acciones">
+                                <button id="botonAgregarProducto" class="boton boton-principal">Agregar
+                                    producto</button>
+                                <button id="botonGenerarReporte" class="boton boton-secundario">Generar reporte</button>
+                            </div>
+
+                            <div class="dashboard-grid">
+                                <div id="areaReporte" class="area-panel"></div>
+                                <div id="areaFactura" class="area-panel"></div>
+                            </div>
+
+                            <div class="tabla-panel">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Código</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaProductos"></tbody>
+                                </table>
+                                <div id="mensajeSinProductos" class="estado-vacio">No hay productos registrados aún.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tabVentas" class="tab-pane">
+                            <div class="panel-placeholder">
+                                <h3>Ventas</h3>
+                                <p>Aquí verás las ventas registradas por usuario.</p>
+                            </div>
+                        </div>
+
+                        <div id="tabReportes" class="tab-pane">
+                            <div class="panel-placeholder">
+                                <h3>Reportes</h3>
+                                <p>Visualiza estadísticas y rendimiento del negocio.</p>
+                            </div>
+                        </div>
+
+                        <div id="tabProveedores" class="tab-pane">
+                            <div class="panel-placeholder">
+                                <h3>Proveedores</h3>
+                                <p>Administra la información de proveedores y contactos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <div id="modalProducto" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido">
+            <div class="modal-cabecera">
+                <h3 id="tituloModalProducto">Agregar producto</h3>
+                <button id="cerrarModalProducto" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <form id="formProducto" class="formulario">
+                <input id="productoId" type="hidden" />
+                <label for="nombreProducto">Nombre del producto</label>
+                <input id="nombreProducto" name="nombreProducto" type="text" placeholder="Nombre del producto"
+                    required />
+
+                <label for="codigoProducto">Código</label>
+                <input id="codigoProducto" name="codigoProducto" type="text" placeholder="Código interno" required />
+
+                <label for="precioProducto">Precio</label>
+                <input id="precioProducto" name="precioProducto" type="number" min="0" step="0.01" placeholder="Precio"
+                    required />
+
+                <label for="stockProducto">Stock</label>
+                <input id="stockProducto" name="stockProducto" type="number" min="0" step="1"
+                    placeholder="Cantidad disponible" required />
+
+                <button type="submit" class="boton boton-principal">Guardar producto</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalVenta" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido">
+            <div class="modal-cabecera">
+                <h3>Registrar venta</h3>
+                <button id="cerrarModalVenta" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <form id="formVenta" class="formulario">
+                <p>Producto: <strong id="ventaProductoNombre"></strong></p>
+                <label for="cantidadVenta">Cantidad</label>
+                <input id="cantidadVenta" name="cantidadVenta" type="number" min="1" step="1" value="1" required />
+                <button type="submit" class="boton boton-principal">Vender</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalCrearUsuario" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido">
+            <div class="modal-cabecera">
+                <h3>Crear nuevo usuario</h3>
+                <button id="cerrarModalCrearUsuario" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <form id="formCrearUsuarioModal" class="formulario">
+                <label for="nombreNuevo">Nombre</label>
+                <input id="nombreNuevo" name="nombreNuevo" type="text" placeholder="Nombre" required />
+
+                <label for="apellidosNuevo">Apellidos</label>
+                <input id="apellidosNuevo" name="apellidosNuevo" type="text" placeholder="Apellidos" required />
+
+                <label for="celularNuevo">Celular</label>
+                <input id="celularNuevo" name="celularNuevo" type="tel" placeholder="Teléfono" />
+
+                <label for="direccionNuevo">Dirección</label>
+                <input id="direccionNuevo" name="direccionNuevo" type="text" placeholder="Dirección" />
+
+                <label for="usuarioNuevo">Nombre de usuario</label>
+                <input id="usuarioNuevo" name="usuarioNuevo" type="text" placeholder="Usuario" required />
+
+                <label for="claveNuevaModal">Contraseña</label>
+                <input id="claveNuevaModal" name="claveNuevaModal" type="password" placeholder="Contraseña" required />
+
+                <label for="confirmarClaveModal">Confirmar contraseña</label>
+                <input id="confirmarClaveModal" name="confirmarClaveModal" type="password"
+                    placeholder="Confirmar contraseña" required />
+
+                <label for="adminClaveCrear">Contraseña administrador</label>
+                <input id="adminClaveCrear" name="adminClaveCrear" type="password" placeholder="Contraseña admin"
+                    required />
+
+                <div style="display:flex;gap:10px;margin-top:10px;">
+                    <button type="submit" class="boton boton-principal">Crear usuario</button>
+                    <button type="button" id="btnCancelarCrearUsuario" class="boton boton-secundario">ATRÁS</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalLogin" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido">
+            <div class="modal-cabecera">
+                <h3>Iniciar sesión</h3>
+                <button id="cerrarModalLogin" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <form id="formLoginModal" class="formulario">
+                <label for="usuarioModalLogin">Usuario</label>
+                <input id="usuarioModalLogin" name="usuarioModalLogin" type="text" placeholder="Usuario" required />
+
+                <label for="claveModalLogin">Contraseña</label>
+                <input id="claveModalLogin" name="claveModalLogin" type="password" placeholder="Contraseña" required />
+
+                <div style="display:flex;gap:10px;margin-top:10px;">
+                    <button type="submit" class="boton boton-principal">Entrar</button>
+                    <button type="button" id="cancelLoginModal" class="boton boton-secundario">ATRÁS</button>
+                </div>
+                <p id="mensajeLoginModal" class="mensaje" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalPerfiles" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido modal-contenido-grande">
+            <div class="modal-cabecera">
+                <h3>Perfiles y ventas</h3>
+                <button id="cerrarModalPerfiles" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <div id="listaPerfiles" class="lista-perfiles"></div>
+        </div>
+    </div>
+    <script src="validacionesUsuario.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Gestión Alexander</title>
+    <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+    <main class="login-contenedor">
+        <section class="login-panel">
+            <div class="login-brand">
+                <div class="logo-login">
+                    <img src="https://i.postimg.cc/4xqb8sHN/TD-alexander.jpg" alt="Gestión Alexander" />
+                </div>
+                <div>
+                    <h1>GestiónApp</h1>
+                    <p>Inicia sesión con tu cuenta</p>
+                </div>
+            </div>
+
+            <div class="login-cards">
+                <div class="login-card">
+                    <h2>Acceder al sistema</h2>
+                    <form id="formLogin" class="login-form">
+                        <label for="usuarioLogin">Usuario</label>
+                        <input id="usuarioLogin" type="text" placeholder="admin" required />
+
+                        <label for="claveLogin">Contraseña</label>
+                        <input id="claveLogin" type="password" placeholder="Pass" required />
+
+                        <button type="submit" class="btn btn-principal">Iniciar sesión</button>
+                        <p id="mensajeLogin" class="mensaje"></p>
+                    </form>
+                </div>
+                <div class="login-card login-register-card">
+                    <h2>Nuevo perfil</h2>
+                    <p>Solo el administrador puede agregar nuevos usuarios.</p>
+                    <button id="abrirRegistro" class="btn btn-secundario">Agregar usuario</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalRegistro" class="modal modal-oculto" aria-hidden="true">
+        <div class="modal-contenido registro-contenido">
+            <div class="modal-cabecera">
+                <h3>Registrar nuevo usuario</h3>
+                <button id="cerrarModalRegistro" class="boton-cerrar" type="button" aria-label="Cerrar">×</button>
+            </div>
+            <form id="formRegistro" class="registro-formulario">
+                <div id="registroPaso1" class="registro-paso">
+                    <label for="nombreNuevo">Nombre</label>
+                    <input id="nombreNuevo" type="text" placeholder="Nombre" required />
+
+                    <label for="apellidosNuevo">Apellidos</label>
+                    <input id="apellidosNuevo" type="text" placeholder="Apellidos" required />
+
+                    <label for="celularNuevo">Celular</label>
+                    <input id="celularNuevo" type="tel" placeholder="Celular" />
+
+                    <label for="direccionNuevo">Dirección</label>
+                    <input id="direccionNuevo" type="text" placeholder="Dirección" />
+
+                    <div class="registro-acciones">
+                        <button type="button" id="cancelarPaso1" class="btn btn-secundario">Cancelar</button>
+                        <button type="button" id="siguientePaso" class="btn btn-principal">Siguiente</button>
+                    </div>
+                </div>
+
+                <div id="registroPaso2" class="registro-paso registro-paso-oculto">
+                    <label for="usuarioNuevo">Usuario</label>
+                    <input id="usuarioNuevo" type="text" placeholder="Usuario" required />
+
+                    <label for="claveNueva">Contraseña</label>
+                    <input id="claveNueva" type="password" placeholder="Contraseña" required />
+
+                    <label for="confirmarClave">Confirmar contraseña</label>
+                    <input id="confirmarClave" type="password" placeholder="Confirmar contraseña" required />
+
+                    <label for="adminClaveCrear">Contraseña administrador</label>
+                    <input id="adminClaveCrear" type="password" placeholder="Contraseña admin" required />
+
+                    <div class="registro-acciones">
+                        <button type="button" id="regresarPaso" class="btn btn-secundario">Regresar</button>
+                        <button type="submit" class="btn btn-principal">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="validacionesUsuario.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>
