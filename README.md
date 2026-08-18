@@ -1,2 +1,4 @@
 # TiendaAlexander
-generacion de un sistema web que llevara como fin solucionar el enredo de cuentas y perdidas de dinero
+para ejecutar el git y se suba solo ingrsem ala terminal de aqui y ejecuuten esto
+
+ .\subir.bat
